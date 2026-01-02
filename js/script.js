@@ -1,26 +1,33 @@
+let historico = [];
 
-function iniciarTeste() {
-    let score = 0;
-    if (confirm("Você se sente satisfeito com sua rotina?")) score++;
-    if (confirm("Você pratica empatia no dia a dia?")) score++;
-    if (confirm("Você contribui com ações sociais?")) score++;
+function avaliar() {
+    let pontos = 0;
+    if (confirm("Você cuida do seu bem-estar emocional?")) pontos++;
+    if (confirm("Você pratica empatia com outras pessoas?")) pontos++;
+    if (confirm("Você contribui com a sociedade?")) pontos++;
 
-    let nivel = score <= 1 ? "Baixo" : score == 2 ? "Médio" : "Alto";
-    document.getElementById("resultado").innerText =
-        "Seu nível de bem-estar é: " + nivel;
+    historico.push(pontos);
 
-    gerarGrafico(score);
+    let nivel = pontos <= 1 ? "Baixo" : pontos == 2 ? "Médio" : "Alto";
+    document.getElementById("resultado").innerText = "Nível atual: " + nivel;
+
+    let rec = nivel === "Baixo"
+        ? "Cuide mais de si e ajude o próximo."
+        : nivel === "Médio"
+        ? "Você está evoluindo."
+        : "Continue inspirando pessoas.";
+
+    document.getElementById("recomendacao").innerText = rec;
+
+    gerarGrafico();
 }
 
-function gerarGrafico(score) {
-    const ctx = document.getElementById('grafico');
-    new Chart(ctx, {
-        type: 'bar',
+function gerarGrafico() {
+    new Chart(document.getElementById("grafico"), {
+        type: "line",
         data: {
-            labels: ['Bem-estar'],
-            datasets: [{
-                data: [score],
-            }]
+            labels: historico.map((_, i) => "Avaliação " + (i + 1)),
+            datasets: [{ data: historico }]
         }
     });
 }

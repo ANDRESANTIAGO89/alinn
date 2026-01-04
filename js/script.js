@@ -54,6 +54,15 @@ function mostrarResultado() {
             labels: ["Pontuação Final"],
             datasets: [{
                 data: [pontos]
+     function reiniciarQuiz() {
+    atual = 0;
+    pontos = 0;
+
+    document.getElementById("resultado").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    mostrarPergunta();
+}
             }]
         }
     });

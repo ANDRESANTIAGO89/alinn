@@ -1,14 +1,11 @@
+# Alínn 🌱 - Quiz de Impacto Social
 
-# Alínn 🌱
+Projeto Integrador e de Extensão – ADS
 
-Plataforma digital criada como Projeto Integrador e de Extensão.
-Objetivo: promover desenvolvimento pessoal, empatia e impacto social.
-
-## Funcionalidades
-- Teste de autoconhecimento
-- Feedback imediato
-- Gráfico de bem-estar
-- Interface simples e acessível
+## Descrição
+Plataforma interativa em formato de quiz com 10 perguntas
+sobre autoconhecimento, empatia e impacto social.
+Ao final, o sistema apresenta a pontuação e um gráfico visual.
 
 ## Tecnologias
 - HTML5
@@ -17,4 +14,4 @@ Objetivo: promover desenvolvimento pessoal, empatia e impacto social.
 - Chart.js
 
 ## Tema
-Integração de Competências para Transformar o Eu, o Outro e a Sociedade
+Integração de Competências Para Transformar o Eu, o Outro e a Sociedade

@@ -2,41 +2,27 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Alínn 2.0</title>
+<title>Alínn 🌱</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header>
-<h1>Alínn 2.0 🌱</h1>
-<p>Plataforma inteligente para desenvolvimento humano e social</p>
+<h1>Alínn 🌱</h1>
+<p>Quiz de Autoconhecimento, Empatia e Impacto Social</p>
 </header>
 
-<section>
-<h2>Avaliação Pessoal</h2>
-<button onclick="avaliar()">Iniciar Avaliação</button>
-<p id="resultado"></p>
-<p id="recomendacao"></p>
+<section id="quiz">
+<h2 id="pergunta"></h2>
+<div id="opcoes"></div>
 </section>
 
-<section>
-<h2>Evolução</h2>
+<section id="resultado" style="display:none">
+<h2>Resultado Final</h2>
+<p id="pontuacao"></p>
 <canvas id="grafico"></canvas>
 </section>
-
-<section>
-<h2>Ações Sociais</h2>
-<ul>
-<li>🤝 Voluntariado</li>
-<li>📚 Educação comunitária</li>
-<li>🌱 Sustentabilidade</li>
-</ul>
-</section>
-
-<footer>
-<p>Projeto Integrador e Extensão - ADS</p>
-</footer>
 
 <script src="js/script.js"></script>
 </body>

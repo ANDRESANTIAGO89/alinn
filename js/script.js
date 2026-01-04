@@ -2,9 +2,9 @@ let historico = [];
 
 function avaliar() {
     let pontos = 0;
-    if (confirm("Você cuida do seu bem-estar emocional?")) pontos++;
-    if (confirm("Você pratica empatia com outras pessoas?")) pontos++;
-    if (confirm("Você contribui com a sociedade?")) pontos++;
+     (confirm("Você cuida do seu bem-estar emocional?")) pontos++;
+     (confirm("Você pratica empatia com outras pessoas?")) pontos++;
+     (confirm("Você contribui com a sociedade?")) pontos++;
 
     historico.push(pontos);
 

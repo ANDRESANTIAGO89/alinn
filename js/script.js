@@ -41,20 +41,7 @@ function responder(opcao) {
     }
 }
 
-function mostrarResultado() {
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("resultado").style.display = "block";
-
-    document.getElementById("pontuacao").innerText =
-        "Sua pontuação final foi: " + pontos + " de " + (perguntas.length * 2);
-
-    new Chart(document.getElementById("grafico"), {
-        type: "bar",
-        data: {
-            labels: ["Pontuação Final"],
-            datasets: [{
-                data: [pontos]
-     function reiniciarQuiz() {
+function reiniciarQuiz() {
     atual = 0;
     pontos = 0;
 

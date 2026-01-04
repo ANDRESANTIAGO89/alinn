@@ -1,33 +1,62 @@
-let historico = [];
+const perguntas = [
+ "Você cuida da sua saúde mental?",
+ "Você respeita opiniões diferentes das suas?",
+ "Você ajuda outras pessoas quando pode?",
+ "Você pratica empatia no dia a dia?",
+ "Você participa ou já participou de ações sociais?",
+ "Você se comunica com respeito?",
+ "Você busca evoluir como pessoa?",
+ "Você se preocupa com o meio ambiente?",
+ "Você valoriza o trabalho em equipe?",
+ "Você acredita que pequenas ações transformam a sociedade?"
+];
 
-function avaliar() {
-    let pontos = 0;
-     (confirm("Você cuida do seu bem-estar emocional?")) pontos++;
-     (confirm("Você pratica empatia com outras pessoas?")) pontos++;
-     (confirm("Você contribui com a sociedade?")) pontos++;
+let atual = 0;
+let pontos = 0;
 
-    historico.push(pontos);
+const perguntaEl = document.getElementById("pergunta");
+const opcoesEl = document.getElementById("opcoes");
 
-    let nivel = pontos <= 1 ? "Baixo" : pontos == 2 ? "Médio" : "Alto";
-    document.getElementById("resultado").innerText = "Nível atual: " + nivel;
+function mostrarPergunta() {
+    perguntaEl.innerText = perguntas[atual];
+    opcoesEl.innerHTML = "";
 
-    let rec = nivel === "Baixo"
-        ? "Cuide mais de si e ajude o próximo."
-        : nivel === "Médio"
-        ? "Você está evoluindo."
-        : "Continue inspirando pessoas.";
-
-    document.getElementById("recomendacao").innerText = rec;
-
-    gerarGrafico();
+    ["Sim", "Às vezes", "Não"].forEach((texto, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = texto;
+        btn.onclick = () => responder(index);
+        opcoesEl.appendChild(btn);
+    });
 }
 
-function gerarGrafico() {
+function responder(opcao) {
+    if (opcao === 0) pontos += 2;
+    if (opcao === 1) pontos += 1;
+
+    atual++;
+    if (atual < perguntas.length) {
+        mostrarPergunta();
+    } else {
+        mostrarResultado();
+    }
+}
+
+function mostrarResultado() {
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("pontuacao").innerText =
+        "Sua pontuação final foi: " + pontos + " de " + (perguntas.length * 2);
+
     new Chart(document.getElementById("grafico"), {
-        type: "line",
+        type: "bar",
         data: {
-            labels: historico.map((_, i) => "Avaliação " + (i + 1)),
-            datasets: [{ data: historico }]
+            labels: ["Pontuação Final"],
+            datasets: [{
+                data: [pontos]
+            }]
         }
     });
 }
+
+mostrarPergunta();
